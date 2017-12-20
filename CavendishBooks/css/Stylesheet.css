@@ -1,0 +1,42 @@
+.button_right {
+	float:left;
+}
+
+.button_left {
+	float:right;
+}
+
+.wrap {
+    white-space: normal !important;
+}
+
+.list {
+    list-style-type: none;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.thumb li a {
+    padding-left: 90px !important;
+}
+
+.thumbContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 90px;
+}
+
+.thumbContainer img {
+    bottom: 0;
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    max-width: 80px;
+    max-height: 78px;
+}

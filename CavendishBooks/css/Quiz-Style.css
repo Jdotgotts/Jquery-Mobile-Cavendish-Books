@@ -1,0 +1,16 @@
+.center {
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+.greenBtn {
+  background-color: #0A8536 !important;
+  border-color: #0A520D !important;
+  color: #FAFAFA !important;
+  text-shadow: 0 1px 0 #111 !important;
+}
+.redBtn {
+  background-color: #800b25 !important;
+  border-color: #b11a3c !important;
+  color: #FAFAFA !important;
+  text-shadow: 0 1px 0 #111 !important;
+}

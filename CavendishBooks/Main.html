@@ -1,0 +1,2873 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavendish Books</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/CB-theme2.min.css">
+    <link rel="stylesheet" href="css/responsiveslides.css">
+    <link rel="stylesheet" href="css/Quiz-Style.css">
+    <link rel="stylesheet" href="css/Stylesheet.css">
+    <link rel="stylesheet" href="css/AboutUs.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/student3.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/Quiz-JavaScript.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/responsiveslides.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="js/Maps.js"></script>
+ <script>
+        
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-24451557-1']);
+          _gaq.push(['_trackPageview']);
+        
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        
+        </script>
+        
+        <script  src="llqrcode.js"></script>
+        <script src="https://apis.google.com/js/plusone.js"></script>
+        <script src="webqr.js"></script>
+        <script src="js/jquery.js"></script>
+        <script src="js/WebCodeCam.js"></script>
+        <script src="js/qrcodelib.js"></script>
+        <script src="js/DecoderWorker.js"></script>
+                  
+
+
+
+
+    <script> 
+        $(function () {
+            // Slideshow 1
+            $("#slider-whsmith").responsiveSlides({
+                auto: true,
+                pager: false,
+                speed: 500,
+                maxwidth: 540
+            });
+            // Slideshow 2
+            $("#slider-waterstones").responsiveSlides({
+                auto: true,
+                pager: false,
+                speed: 500,
+                maxwidth: 540
+            });
+            // Slideshow 3
+            $("#slider-foyles").responsiveSlides({
+                auto: true,
+                pager: false,
+                speed: 500,
+                maxwidth: 540
+            });
+            // Slideshow 4
+            $("#slider-dauntbooks").responsiveSlides({
+                auto: true,
+                pager: false,
+                speed: 500,
+                maxwidth: 540
+            });
+            // Slideshow 5
+            $("#slider-johnsmith").responsiveSlides({
+                auto: true,
+                pager: false,
+                speed: 500,
+                maxwidth: 540
+            });
+            // Slider
+            $("#slider").responsiveSlides({
+                auto: true,
+                pager: false,
+                nav: false,
+                speed: 500,
+                namespace: "callbacks",
+                before: function () {
+                    $('.events').append("<li>before event fired.</li>");
+                },
+                after: function () {
+                    $('.events').append("<li>after event fired.</li>");
+                }
+            });
+
+        });
+    </script>
+    <style>
+        #map-whsmith {
+            height: 200px;
+            width: 100%;
+        }
+
+        #map-waterstone {
+            height: 200px;
+            width: 100%;
+        }
+
+        #map-foyles {
+            height: 200px;
+            width: 100%;
+        }
+
+        #map-dauntbooks {
+            height: 200px;
+            width: 100%;
+        }
+
+        #map-johnsmith {
+            height: 200px;
+            width: 100%;
+        }
+
+        #map-about {
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body onLoad="initMap()">
+
+
+    <!-- Start of Homepage -->
+    <div data-role="page" id="Home" class="ui-page" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <a href="#Home">
+                    <img src="img/CB_Logo.png" class="ui-header-img">
+                </a>
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h1>Welcome to Cavendish Books</h1>
+            <p></p>
+            <!-- The True False Games -->
+            <div id="trueFalseGames" data-theme="a">
+                <div data-role="ui-content" style="margin-top:15px;">
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a onClick="launch(this.id)" id="novelFacts" style="background-color:white;">Quiz about Novel Series</a>
+                        </li>
+                    </ul>
+                    <h4>
+                        <span style="font-size:28px;">High Score:
+                            <span></span>
+                        </span>
+                    </h4>
+                </div>
+
+                <!-- The PopUp Card -->
+                <div data-role="popup" id="card" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="a">
+                    <div role="main" class="ui-content">
+                        <div class="center">
+                            <p></p>
+                            <a id="true" onclick="submit(this)" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">TRUE</a>
+                            <a id="false" onclick="submit(this)" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">FALSE</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- The GameOver Card -->
+                <div data-role="popup" id="gameover" data-dismissible="false" style="min-width:300px;" data-transition="flow" data-theme="a">
+                    <div role="main" class="ui-content">
+                        <div class="center">
+                            <p></p>
+                            <a id="corrent" onclick="retryQuiz()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">RETRY</a>
+                            <a id="wrong" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-rel="back">CLOSE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--slider-->
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    <li>
+                        <img src="img/bookstore2.jpg" alt="">
+                        <p class="caption">The Works stock books, toys, gifts, stationery and arts & crafts.</p>
+                    </li>
+                    <li>
+                        <img src="img/bookstore3.jpg" alt="">
+                        <p class="caption">Broadway Bookshop specialise in literary fiction.</p>
+                    </li>
+                    <li>
+                        <img src="img/bookstore4.jpg" alt="">
+                        <p class="caption">The Well Bookshop is an independent bookshop</p>
+                    </li>
+                    <li>
+                        <img src="img/bookstore5.jpg" alt="">
+                        <p class="caption">The Notting Hill Bookshop has broad range of children’s books.</p>
+                    </li>
+                </ul>
+            </div>
+            <iframe width="500" height="318" style="display:block; margin: 0 auto;" src="https://www.youtube.com/embed/zXP7Ig5rbyA" frameborder="0"
+                allowfullscreen></iframe>
+        </div>
+        <!--/content-->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of Stores Page -->
+    <div data-role="page" id="Store" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2>Book Stores in London</h2>
+            <ul data-role="listview" data-inset="true" data-filter="true" id="newslist" class="ui-ul-list ui-alt-icon ui-nodisc-icon">
+                <li data-role="list-divider" style="text-shadow:none">List of Stores in London</li>
+                <li id="store">
+                    <a href="#whsmith" class="ui-li-link">
+                        <img src="img/whsmith.jpg">
+                        <h4>WHSmith</h4>
+                        <p class="ui-li-desc">WHSmith has over 600 store on the high street and over 600 stores at airports, train stations, hospitals
+                            and motorway services. WHSmith is one of the UK’s leading retail groups and a household names.</p>
+                    </a>
+                </li>
+                <li id="#store2">
+                    <a href="#waterstones" class="ui-li-link">
+                        <img src="img/waterstones.jpg">
+                        <h4>Waterstones</h4>
+                        <p class="ui-li-desc wrap" align="justify">We are the last remaining chain of specialist bookshops on the high street, and with more ways to
+                            read than ever.</p>
+                    </a>
+                </li>
+                <li id="#store3">
+                    <a href="#foyles" class="ui-li-link">
+                        <img src="img/foyles.jpg">
+                        <h4>Foyles</h4>
+                        <p class="ui-li-desc wrap" align="justify">Foyles is a renowned, even legendary award-winning independent bookstore with a long history, see
+                            below.
+                        </p>
+                    </a>
+                </li>
+                <li id="#store4">
+                    <a href="#dauntbooks" class="ui-li-link">
+                        <img src="img/dauntbooks.jpg">
+                        <h4>Daunt Books</h4>
+                        <p class="ui-li-desc wrap" align="justify">Daunt Books was founded in 1990 by James Daunt in the beautiful Edwardian premises at 83 Marylebone
+                            High Street in London – originally built for antiquarian booksellers Francis Edwards in 1910.</p>
+                    </a>
+                </li>
+                <li id="#store5">
+                    <a href="#johnsmith" class="ui-li-link">
+                        <img src="img/johnsmith.jpg">
+                        <h4>John Smith's Bookshop</h4>
+                        <p class="ui-li-desc wrap" align="justify">John Smith’s has a proud and distinguished history of selling books which stretches back to 1751
+                            but the company is now far more than a simple bookselling business.</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--/content-->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of WHSmith Page -->
+    <div data-role="page" id="whsmith" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Store" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2 class="ui-bar">WHSmith</h2>
+
+            <!-- Slideshow 2 -->
+            <ul class="rslides" id="slider-whsmith">
+                <li>
+                    <a href="#">
+                        <img src="img/whsmith.jpg" alt="" width="800" height="400">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/whsmith2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/whsmith3.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Brief Description about WHSmith</h4>
+
+                <p align="justify">WHSmith has over 600 store on the high street and over 600 stores at airports, train stations, hospitals
+                    and motorway services. WHSmith is one of the UK’s leading retail groups and a household names. Beyond
+                    the UK we continue to open stores in airports, railway stations, hospitals and shopping malls across
+                    Australia, South East Asia, India and the Middle East.</p>
+            </div>
+            <br>
+            <br>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Extented Description about WHSmith</h4>
+
+                <p align="justify">You probably know us best for books, newspapers and stationery. Now, thanks to our carefully chosen partners,
+                    we offer an increasingly wide choice of goods through our stores and website. It's important our online
+                    service is as good as the service you get in store, which is why we: Deliver free to WHSmith high street
+                    stores, Deliver orders over £20 free to your address, Send each product when it's in stock, instead of
+                    waiting for your whole order to be ready, Make returns easy - just bring them into your nearest WHSmith
+                    high street store. Being a responsible business is a high priority for us. We strive to improve the way
+                    we do things across areas including: energy and emissions, transport, waste, packaging, encouraging customer
+                    responsibility, product sourcing and suppliers.</p>
+            </div>
+            <br>
+            <br>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Map of WHSmith</h4>
+                <div id="map-whsmith"></div>
+
+
+            </div>
+            <!-- favourites button-->
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="checkbox" name="favourite-store" id="favourite-store" class="custom">
+                <label for="favourite-store">
+                    <span class="ui-icon-star ui-btn-icon-right ui-alt-icon">Add to favourites</span>
+                </label>
+            </fieldset>
+        </div>
+        <!-- /content -->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of Waterstone Page -->
+    <div data-role="page" id="waterstones" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Store" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2 class="ui-bar">Waterstones</h2>
+            <!-- Slideshow 2 -->
+            <ul class="rslides" id="slider-waterstones">
+                <li>
+                    <a href="#">
+                        <img src="img/waterstones.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/waterstones2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/waterstones3.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Brief Description about Waterstones</h4>
+
+                <p align="justify">We are the last remaining chain of specialist bookshops on the high street, and with more ways to read than
+                    ever, as well as competition from things like computer games and the sheer mass of information in the
+                    digital space, we are challenged with making our shops welcoming and interesting places to browse and
+                    explore, offering outstanding service, and an unrivalled array of bookshop events. They are staffed with
+                    passionate, knowledgeable booksellers, selling the right range of books for the local market, and who
+                    are ready to recommend that book that you didn’t know you wanted.</p>
+            </div>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Extented Description about Waterstones</h4>
+
+                <p align="justify">The local aspect is hugely important to us, and the “one size fits all” approach is firmly in the past. No
+                    two Waterstones bookshops are the same, with each shop tailoring its range to reflect the trends and
+                    interests of their local market, as well as the big national bestsellers that are in demand across the
+                    country. The local approach also extends to our Café W locations across the UK, where we bring you the
+                    best produce from local suppliers to cut down on food miles and support the local business community.</p>
+                <p align="justify">And it’s all about the books. Our Books of the Month and Waterstones Book Club, as well as things like the
+                    Waterstones Children’s Book Prize are used to champion the best new books across a range of genres and
+                    subjects with notable recent successes including The Miniaturist, the most successful debut novel of
+                    recent years, the phenomenal nature memoir H is For Hawk by Helen Macdonald, and John Williams’ Stoner,
+                    a quiet, intense novel that we turned into a bestseller forty years after its original publication.</p>
+                <p align="justify">On this new, improved website you will also be able to find a shop page for your local Waterstones, and have
+                    the option to nominate your local Waterstones and take advantage of our hugely successful Click & Collect
+                    service, where you can order from our website at the online price, and pick it up from your local shop.
+                    We have also vastly improved our online availability, and now have around 250,000 titles available within
+                    24 hours, which greatly increases your chances of getting the book that you want, when you want it.</p>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Map of Waterstone</h4>
+                <div id="map-waterstone"></div>
+
+
+
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="checkbox" name="favourite-waterstone" id="favourite-waterstone" class="custom">
+                <label for="favourite-waterstone">
+                    <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+                </label>
+            </fieldset>
+        </div>
+        <!-- /content -->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of Foyles Page -->
+    <div data-role="page" id="foyles" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Store" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2 class="ui-bar">Foyles</h2>
+            <!-- Slideshow 2 -->
+            <ul class="rslides" id="slider-foyles">
+                <li>
+                    <a href="#">
+                        <img src="img/foyles.jpg" alt="" width="800" height="400">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/foyles2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/foyles3.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Brief Description about Foyles</h4>
+
+                <p align="justify">Foyles is a renowned, even legendary award-winning independent bookstore with a long history, see below.
+                    Currently we have four London bookstores and a store in both Birmingham, Bristol and Chelmsford as well
+                    as this website, which offers delivery to home, business or bookstore, and a Click & Collect option for
+                    instore stock items. Our stores reflect their local markets, but are always noted for their range of
+                    Fiction, the Arts and Children's books in particular as well as our friendly and knowledgeable staff.
+                </p>
+            </div>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Extented Description about Foyles</h4>
+
+                <p align="justify">Our largest and best known store is our five-storey Charing Cross Road branch which is famous for covering
+                    every specialism and now includes the largest Foreign Language selection in the UK, as well as Sheet
+                    Music, Classical and Jazz Music on CD and Vinyl, and a DVD department.. Going across all our stores and
+                    the website, Foyles has a popular and rewarding loyalty scheme called Foyalty, and Gift Cards which can
+                    be spent and bought in store and online.</p>
+                <p align="justify">In the early noughties Charing Cross Road underwent a full facelift and returned to the roots of the business
+                    - 5 floors of the largest range of books in the UK on every possible subject with expert, knowledgeable
+                    and courteous staff always on hand to help with any enquiry. Complementary to the books has been added
+                    a range of gifts and stationery and own-brand product as well as an expanded offer in key departments
+                    to create one-stop shops. In our medical department you can find everything the student, professional
+                    or hypochondriac could possibly need, from scrubs and stethoscopes to skeletons and sphygomanometers.
+                    Our third floor is now entirely devoted to music.</p>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Map of Foyles</h4>
+                <div id="map-foyles"></div>
+
+
+
+                <script>
+                    function initMap() {
+                        var foylesMarker = { lat: 51.542116, lng: -0.002252 };
+                        var dauntsMarker = { lat: 51.508114, lng: -0.097162 };
+                        var waterstoneMarker = { lat: 51.542116, lng: -0.002252 };
+                        var whsmithMarker = { lat: 51.542116, lng: -0.002252 };
+                        var johnsmithMarker = { lat: 51.542116, lng: -0.002252 };
+                        var eventMarker = { lat: 51.508114, lng: -0.097162 };
+                        var eventMarker2 = { lat: 51.523894, lng: -0.158577 };
+                        var aboutMarker = { lat: 51.520919, lng: -0.140126 };
+
+                        var johnsmithOptions = {
+                            zoom: 15,
+                            center: johnsmithMarker
+                        }
+
+                        var Foylesoptions = {
+                            zoom: 15,
+                            center: foylesMarker
+                        };
+                        var dauntsOptions = {
+                            zoom: 15,
+                            center: dauntsMarker
+                        }
+
+                        var waterstoneOptions = {
+                            zoom: 15,
+                            center: waterstoneMarker
+                        }
+
+                        var whsmithOptions = {
+                            zoom: 15,
+                            center: whsmithMarker
+                        }
+
+                        var eventOptions = {
+                            zoom: 15,
+                            center: eventMarker
+                        }
+
+                        var eventOptions2 = {
+                            zoom: 15,
+                            center: eventMarker2
+                        }
+                        var aboutOptions = {
+                            zoom: 15,
+                            center: aboutMarker
+                        }
+
+                        var Foylesmap = new google.maps.Map(document.getElementById('map-foyles'), Foylesoptions);
+                        var dauntsMap = new google.maps.Map(document.getElementById('map-dauntbooks'), dauntsOptions);
+                        var waterstoneMap = new google.maps.Map(document.getElementById('map-waterstone'), waterstoneOptions);
+                        var whsmithMap = new google.maps.Map(document.getElementById('map-whsmith'), whsmithOptions);
+                        var johnsmithMap = new google.maps.Map(document.getElementById('map-johnsmith'), johnsmithOptions);
+                        var eventMap = new google.maps.Map(document.getElementById('mapEvent'), eventOptions);
+                        var eventMap2 = new google.maps.Map(document.getElementById('mapEvent2'), eventOptions2);
+                        var aboutMap = new google.maps.Map(document.getElementById('mapOffice'), aboutOptions);
+
+                        var johnsmithMark = new google.maps.Marker({
+                            position: johnsmithMarker,
+                            map: johnsmithMap
+                        });
+
+                        var foylesMark = new google.maps.Marker({
+                            position: foylesMarker,
+                            map: Foylesmap
+                        });
+
+                        var dauntMark = new google.maps.Marker({
+                            position: dauntsMarker,
+                            map: dauntsMap
+                        });
+
+                        var waterstoneMark = new google.maps.Marker({
+                            position: waterstoneMarker,
+                            map: waterstoneMap
+                        });
+
+                        var whsmithMark = new google.maps.Marker({
+                            position: whsmithMarker,
+                            map: whsmithMap
+                        });
+
+                        var eventMark = new google.maps.Marker({
+                            position: eventMarker,
+                            map: eventMap
+                        });
+
+                        var eventMark2 = new google.maps.Marker({
+                            position: eventMarker2,
+                            map: eventMap2
+                        });
+                        var aboutMark = new google.maps.Marker({
+                            position: aboutMarker,
+                            map: aboutMap
+                        });
+
+                    }
+
+                    google.maps.event.addDomListener(window, "load", initMap);
+                </script>
+                <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3pUj-tp3gub8uv-FKOXBsY1zGVduRaFY">
+                </script>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="checkbox" name="favourite-foyles" id="favourite-foyles" class="custom">
+                <label for="favourite-foyles">
+                    <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+                </label>
+            </fieldset>
+        </div>
+        <!-- /content -->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of Daunt Books Page -->
+    <div data-role="page" id="dauntbooks" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Store" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2 class="ui-bar">Daunt Bookshop</h2>
+            <!-- Slideshow 2 -->
+            <ul class="rslides" id="slider-dauntbooks">
+                <li>
+                    <a href="#">
+                        <img src="img/dauntbooks.jpg" alt="" width="800" height="400">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/dauntbooks2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/dauntbooks3.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Brief Description about Daunt Bookshop</h4>
+
+                <p align="justify">Daunt Books was founded in 1990 by James Daunt in the beautiful Edwardian premises at 83 Marylebone High
+                    Street in London – originally built for antiquarian booksellers Francis Edwards in 1910.</p>
+            </div>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Extented Description about Daunt Bookshop</h4>
+
+                <p align="justify">At the heart of the shop is a long, galleried main room which has as its focus a beautiful arched window
+                    partly glazed with stained glass. The intention then, as now, was to arrange books principally by country,
+                    whatever the nature of the book – fiction or non-fiction, biography, history, guide or novel – and in
+                    so doing creating wonderful browsing both for the traveller and the general reader.</p>
+
+                <p align="justify">A premium has always been placed on informed bookselling and service and the shop attracted loyal fans immediately.
+                    It doubled in size a few years later, expanding to 84 Marylebone High Street and allowing us to offer a
+                    wider selection of children’s books, cookery and art, and by the end of the 1990’s, two further shops
+                    had been opened in North London – at Haverstock Hill, in Belsize Park, and South End Road in Hampstead.
+                    With the now famous Daunt Books canvas tote bags increasingly seen on London’s streets, new shops opened
+                    in leafy Holland Park and on the Fulham Road in Chelsea in the 2000s. Finally in 2010 Daunt Books added
+                    its latest shop on Cheapside, next to Bow Church.</p>
+            </div>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Map of Daunt Bookshop</h4>
+                <div id="map-dauntbooks"></div>
+
+
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="checkbox" name="favourite-dauntbooks" id="favourite-dauntbooks" class="custom">
+                <label for="favourite-dauntbooks">
+                    <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+                </label>
+            </fieldset>
+        </div>
+        <!-- /content -->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of John Smith's Bookshop Page -->
+    <div data-role="page" id="johnsmith" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Store" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2 class="ui-bar">John Smith's Bookshop</h2>
+            <!-- Slideshow 2 -->
+            <ul class="rslides" id="slider-johnsmith">
+                <li>
+                    <a href="#">
+                        <img src="img/johnsmith.jpg" alt="" width="800" height="400">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/johnsmith2.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="img/johnsmith3.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Brief Description about John Smith's Bookshop</h4>
+
+                <p>John Smith’s has a proud and distinguished history of selling books which stretches back to 1751 but the
+                    company is now far more than a simple bookselling business. Our core market is the Higher Education sector
+                    which has been undergoing dramatic changes over recent years, including the introduction of new fee regimes
+                    and increasing moves towards digital and online learning.</p>
+            </div>
+
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Extented Description about John Smith's Bookshop</h4>
+
+                <p align="justify">In line with this changing environment, JS is now positioned as a 'Solutions Provider’ for the sector, supporting
+                    universities in meeting the new demands and delivering their strategic objectives, not just in terms
+                    of core student book provision (including now in digital format) but also other key areas such as recruitment,
+                    student experience and even employability. However, the student learning process remains at the very
+                    heart of what we do and so many of our core services are based around student textbook provision: Reading
+                    Lists, Unique offers and bundles, Lecture presentations (such as First Lecture book talks), Start-of-term
+                    bookstalls, Departmental credit sales, Special orders, Regular feedback to lecturers and departments</p>
+
+                <p align="justify">These core services are complemented by other essential learning materials including stationery and IT consumables,
+                    etc, whilst in some locations our offer also now features more general 'student lifestyle’ products such
+                    as 'grab and go’ food and university-branded merchandise.</p>
+
+            </div>
+            <br>
+            <div class="ui-body ui-body-a ui-corner-all">
+                <h4>Map of John Smith's Bookshop</h4>
+                <div id="map-johnsmith"></div>
+
+
+
+            </div>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <input type="checkbox" name="favourite-johnsmith" id="favourite-johnsmith" class="custom">
+                <label for="favourite-johnsmith">
+                    <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+                </label>
+            </fieldset>
+        </div>
+        <!-- /content -->
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-alt-icon ui-btn ui-icon-location ui-btn-icon-top ui-btn-active ui-state-persist">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- Start of Events Page -->
+    <div data-role="page" id="Events" data-theme="a" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2>Events</h2>
+            <ul data-role="listview" data-inset="true" data-filter="true" class="ui-ul-list ui-alt-icon ui-nodisc-icon">
+                <li data-role="list-divider">Events Near You</li>
+                <li id="shakespeareEvent">
+                    <a href=#Shakespeare>
+                        <img src="img/shakespeare.jpg" class="ui-li-thumb">
+                        <h1>Shakespeare’s Globe</h1>
+                        <p id="eventAside" class="ui-li-aside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>South Bank</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating4.jpg" class="rating-img">
+                            <p>The modern Shakespeare’s Globe only holds about half the capacity of the original, but you can
+                                still get a rich feel for what it was like to be a ‘groundling’ (the standing rabble at the
+                                front of the stage).</p>
+                        </div>
+                    </a>
+                </li>
+                <li id="sherlockEvent">
+                    <a href=#Sherlock>
+                        <img src="img/sherlock.jpg" class="ui-li-thumb">
+                        <h1>Sherlock Holmes Museum</h1>
+                        <p class="ui-li-aside" id="eventAside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>Marylebone</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating5.jpg" class="rating-img">
+                            <p>The Sherlock Holmes Museum – founded in 1989 on a site approximating that described by Conan
+                                Doyle, though actually standing at number 239 – fought long and hard for the right to claim
+                                the address 221B Baker Street as its own.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href=#>
+                        <img src="img/charles.jpg" class="ui-li-thumb">
+                        <h1>Charles Dickens Museum</h1>
+                        <p class="ui-li-aside" id="eventAside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>Holborn</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating4.jpg" class="rating-img">
+                            <p>The museum, library and headquarters of the Dickens Fellowship – and the house where Dickens
+                                lived from 1837-39 – allows visitors a glimpse of how the writer worked and how people lived
+                                in Victorian London.</p>
+                        </div>
+                    </a>
+                </li>
+
+
+
+                <li data-role="list-divider">Popular Events</li>
+
+                <li>
+                    <a href=#>
+                        <img src="img/highgate.jpg" class="ui-li-thumb">
+                        <h1>Highgate Cemetery</h1>
+                        <p class="ui-li-aside" id="eventAsideBig">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>Dartmouth Park</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating4.jpg" class="rating-img">
+                            <p>The final resting place of some very famous Londoners, Highgate Cemetery is a wonderfully overgrown
+                                maze of ivy-cloaked Victorian tombs and time-shattered urns. Visitors are free to wander
+                                through the East Cemetery, with its memorials to Karl Marx, George Eliot and Douglas Adams,
+                                but the most atmospheric part of the cemetery is the foliage-shrouded West Cemetery, laid
+                                out in 1839.</p>
+                        </div>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href=#>
+                        <img src="img/johnson.jpg" class="ui-li-thumb">
+                        <h1>Dr Johnson's House</h1>
+                        <p class="ui-li-aside" id="eventAside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>Smithfield</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating3.jpg" class="rating-img">
+                            <p>Samuel Johnson’s home from 1748-1759 and the place where he compiled the first comprehensive
+                                English dictionary houses collections of pictures and period furniture.</p>
+                        </div>
+                    </a>
+                </li>
+
+
+
+
+                <li data-role="list-divider">Upcoming Events</li>
+
+                <li>
+                    <a href=#>
+                        <img src="img/keats.jpg" class="ui-li-thumb">
+                        <h1>Keats House</h1>
+                        <p class="ui-li-aside" id="eventAside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>Smithfield</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating2.jpg" class="rating-img">
+                            <p>This was the home of the Romantic poet from 1818 to 1820, when he left for Rome in the hope of
+                                alleviating his tuberculosis (he died of the disease the following year, aged 25). As well
+                                as mooching through the rooms, you can attend events and talks in the poetry reading room
+                                and see a display on Keats's sweetheart, Fanny Brawne, who lived next door.</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href=#>
+                        <img src="img/illustration.jpg" class="ui-li-thumb">
+                        <h1> House of Illustration</h1>
+                        <p class="ui-li-aside" id="eventAside">
+                            <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                            <b>King's Cross</b>
+                        </p>
+                        <div class="list-text">
+                            <img src="img/rating3.jpg" class="rating-img">
+                            <p>This charming little gallery is dedicated to the art of illustration and generally hosts two or three small 
+                                exhibitions at a time. Quentin Blake is the gallery's patron, so fans of his scratchy pictures are likely 
+                                to be in for a treat.</p>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                        <a href=#>
+                            <img src="img/poets.jpg" class="ui-li-thumb">
+                            <h1> Poet's Corner</h1>
+                            <p class="ui-li-aside" id="eventAside">
+                                <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                                <b>Westminster</b>
+                            </p>
+                            <div class="list-text">
+                                <img src="img/rating4.jpg" class="rating-img">
+                                <p>Tucked away in London’s gothic masterpiece, Westminster Abbey, here you’ll find all the big dogs of literature immortalised 
+                                    in marble and bronze. Check out Shakespeare doing a casual ‘best playwright ever’ lean, accompanied by lines from ‘The Tempest’.</p>
+                            </div>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-alt-icon ui-btn ui-icon-calendar ui-btn-icon-top ui-btn-active ui-state-persist">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <!-- This is the shakespeare page -->
+    <section id="Shakespeare" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+
+            </h1>
+            <a href="#Events" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+
+        <div class="content" class="ui-content">
+            <div class="page-header">
+                <h1>Shakespeare’s Globe</h1>
+                <div class="event-title">
+
+                    <p>
+                        <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                        <b>South Bank</b>
+                        <img src="img/rating4.jpg" class="rating-title-img">
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="event-image">
+
+
+                <img class="mySlides" src="img/shakespeare.jpg">
+                <img class="mySlides" src="img/slide2.jpg">
+                <img class="mySlides" src="img/slide3.jpg">
+            </div>
+
+            <script>
+
+                var slideIndex = 0;
+                carousel();
+
+                function carousel() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > x.length) { slideIndex = 1 }
+                    x[slideIndex - 1].style.display = "block";
+                    setTimeout(carousel, 2000); // Change image every 2 seconds
+                }
+            </script>
+
+
+
+            <div class="button-background">
+                <hr>
+                <a href="#Tickets" id="ticketButton" class="ui-btn ui-shadow ui-icon-tag ui-alt-icon ui-nodisc-icon ui-btn-icon-right">Book a ticket</a>
+                <hr>
+            </div>
+
+
+
+            <div class=event-text>
+                <h3>The Shakespeare’s Globe</h3>
+                <p>Built in 1599 and destroyed by fire in 1613, the original Globe Theatre was at the heart of London’s seedy
+                    entertainment district in William Shakespeare’s time. Here, productions were put on by the Lord Chamberlain’s
+                    Men, who included in their company old Bill himself. Although the theatre was rebuilt after the fire,
+                    it was eventually torn down in 1644, and as London’s entertainment centre moved west, this stretch of
+                    South Bank between Blackfriars and London Bridge was all but forgotten for generations.</p>
+
+                <hr>
+                <form method="get" action="">
+                    <fieldset class="ui-grid-b">
+                        <div class="ui-block-a">
+                            <a href="#shakespeareMap" class="ui-btn ui-shadow ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-right getButton">Find on map</a>
+                        </div>
+                        <div class="ui-block-b test2">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <div class="ui-checkbox test">
+                                    <input type="checkbox" name="favourite-event1" id="favourite-event1" class="custom">
+                                </div>
+                                <label for="favourite-event1">
+                                    <span class="ui-icon-star ui-btn-icon-right ui-alt-icon">Add to favourites</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+
+
+
+
+
+
+                </form>
+
+
+            </div>
+            <div class=event-text>
+
+                <p>Fast forward to 1997, when, following a decades-long campaign run by the late American actor Sam Wanamaker,
+                    the Globe was recreated near it’s original site. They used as much historical detail as could be found
+                    when designing the building in order to provide an authentic, Shakespearean experience with plays presented
+                    as close as possible to the kind of setting and conditions The Bard would have written for.</p>
+
+
+                <img src="img/shakespeare2.jpg" class="event-img2">
+
+                <p>Compared to the seventeenth century version of the theatre, the modern day Shakespeare’s Globe only holds
+                    about half the capacity, but theatre-goers can still get a rich feel for what it was like to be a ‘groundling’
+                    (the standing rabble at the front of the stage) in the circular, open-air theatre.</p>
+
+
+
+                <p>However, a visit here isn’t just a history lesson. The theatre productions are among the best in London.
+                    Each season (spring to early autumn) includes several Shakespeare classics, performed by a company of
+                    established and upcoming actors, while works of other writers are also programmed. The Globe also now
+                    offers performances in the recently opened Sam Wanamaker Playhouse – a candlelit indoor theatre within
+                    the Globe’s building, which presents plays in a traditional Jacobean setting. Even if you’re not attending
+                    a play, you can do the Globe Exhibition and Tour. Open all year round, the tour explores the life and
+                    work of Shakespeare and theatre in his time.</p>
+            </div>
+
+        </div>
+
+
+
+        <div class="button-background">
+            <hr>
+            <a href="https://www.facebook.com">
+            <img src="img/facebook.png" class="socialIcons"> </a>
+            <a href="https://mobile.twitter.com">
+            <img src="img/twitter.png" class="socialIcons"></a>
+            <a href="https://www.instagram.com">
+            <img src="img/instagram.png" class="socialIcons"> </a>
+        </div>
+
+
+
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Store</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-alt-icon ui-icon-calendar ui-btn-icon-top ui-btn-active ui-state-persist">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class=" ui-btn ui-icon-grid ui-btn-icon-top ">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+
+
+    </section>
+    <!-- This is the sherlock page -->
+    <section id="Sherlock" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+
+            </h1>
+            <a href="#Events" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+
+        <div data-role="content" class="ui-content">
+            <div class="page-header">
+                <h1>Sherlock Holmes Museum</h1>
+                <div class="event-title">
+
+                    <p>
+                        <span class="ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-notext inlineIcon"></span>
+                        <b>Marylebone</b>
+                        <img src="img/rating5.jpg" class="rating-title-img">
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="event-image">
+
+
+                <img class="mySlides2" src="img/sherlock4.jpg">
+                <img class="mySlides2" src="img/sherlock2.jpg">
+                <img class="mySlides2" src="img/sherlock3.jpg">
+            </div>
+
+            <script>
+
+                var slideIndex = 0;
+                carouselSecond();
+
+                function carouselSecond() {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides2");
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    slideIndex++;
+                    if (slideIndex > x.length) { slideIndex = 1 }
+                    x[slideIndex - 1].style.display = "block";
+                    setTimeout(carouselSecond, 2000); // Change image every 2 seconds
+                }
+            </script>
+
+
+
+            <div class="button-background">
+                <hr>
+                <a href="#Tickets" id="ticketButton" class="ui-btn ui-shadow ui-icon-tag ui-alt-icon ui-nodisc-icon ui-btn-icon-right">Book a ticket</a>
+                <hr>
+            </div>
+
+
+
+            <div class=event-text>
+                <h3>The Sherlock Holmes Museum</h3>
+                <p>The Sherlock Holmes Museum was initially founded in 1989, on a site as close to that described by Conan Doyle
+                    as possible (it's actually at number 239). It fought long and hard for the right to claim the address
+                    221B Baker Street as its own, which it now does, giving it a well-deserved bit of authenticity. When
+                    visiting you're likely to be greeted by a respectable-looking chap in a bowler hat and whiskers; this,
+                    you will deduce, is Doctor Watson. And every lovingly recreated detail here conspires to persuade visitors
+                    to suspend their disbelief and feel themselves travelling back in time to a preserved fragment of historical
+                    reality. </p>
+
+                <hr>
+                <form method="get" action="">
+                    <fieldset class="ui-grid-b">
+                        <div class="ui-block-a">
+                            <a href="#sherlockMap" class="ui-btn ui-shadow ui-icon-location ui-alt-icon ui-nodisc-icon ui-btn-icon-right getButton">Find on map</a>
+                        </div>
+                        <div class="ui-block-b test2">
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <div class="ui-checkbox test">
+                                    <input type="checkbox" name="favourite-event2" id="favourite-event2" class="custom">
+                                </div>
+                                <label for="favourite-event2">
+                                    <span class="ui-icon-star ui-btn-icon-right ui-alt-icon">Add to favourites</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+
+
+                </form>
+
+
+            </div>
+
+            <div class=event-text>
+                <p>The Sherlock Holmes Museum bristles with murder weapons, Victoriana and waxworks depicting scenes from the
+                    stories. Upstairs in Mrs Hudson’s room, there is a folder of letters addressed to Holmes by fans from
+                    all over the world and, apparently, a fair percentage of visitors do believe that the whole set-up is
+                    for real.</p>
+
+
+                <img src="img/sherlock5.jpg" class="event-img2">
+
+                <p> One thing to note is this place is all about paying homage to Conan Doyle's version, so don't expect to see
+                    anything relating to the BBC television show featuring Benedict Cumberbatch. Still, plenty of fun on
+                    display – elementary and otherwise. </p>
+
+
+
+                <p>The museum spreads out over four storeys. Each room is crammed with a mix of authentic furniture of the era
+                    and pastiche props. It's as though the famous duo have just popped out on a case, and we're snooping
+                    round their rooms. And very nice they are too. If you come from a place without any Victorian heritage
+                    (i.e. most of the world), then you're in for a visual treat..</p>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="button-background">
+            <hr>
+            <a href="https://www.facebook.com">
+            <img src="img/facebook.png" class="socialIcons"> </a>
+            <a href="https://mobile.twitter.com">
+            <img src="img/twitter.png" class="socialIcons"></a>
+            <a href="https://www.instagram.com">
+            <img src="img/instagram.png" class="socialIcons"> </a>
+        </div>
+        </div>
+
+
+
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Store</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-alt-icon ui-icon-calendar ui-btn-icon-top ui-btn-active ui-state-persist">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class=" ui-btn ui-icon-grid ui-btn-icon-top ">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+
+        <script>
+            function test() {
+
+
+                $('#favourite-event1').click(function () {
+                    $(this).attr('data-icon', 'star');
+                    $(this).children().children().next().removeClass('ui-icon-star').addClass('ui-icon-check');
+                }).page();
+            }
+
+        </script>
+
+
+
+    </section>
+    <!-- Shakespeare map page -->
+    <section id="shakespeareMap" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Shakespeare" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+
+
+        <div class="ui-content">
+
+            <h3>Shakespeare’s Globe - Map</h3>
+            <div id="mapEvent"></div>
+
+            <br>
+            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <p>Address:</p>
+                    <hr> </div>
+
+                <div class="ui-block-b">
+                    <p>21, New Globe Walk, Bankside, London</p>
+
+                </div>
+                <div class="ui-block-a">
+                    <p>Postcode:</p>
+                    <hr>
+                </div>
+                <div class="ui-block-b">
+                    <p>SE1 9DT</p>
+                </div>
+
+
+                <div class="ui-block-a">
+                    <p>Opening Hours:</p>
+                    <hr>
+                </div>
+                <div class="ui-block-b">
+                    <p>9am-5pm</p>
+                </div>
+
+                <div class="ui-block-a">
+                    <p>Transport:</p>
+                </div>
+                <div class="ui-block-b">
+                    <p>Tube: Blackfriars/Mansion House/London Bridge</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Store</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-icon-calendar ui-alt-icon ui-btn-icon-top ui-btn-active ui-state-persist">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top ">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class=" ui-btn ui-icon-grid ui-btn-icon-top ">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+
+
+    </section>
+    <!-- sherlock map page -->
+    <section id="sherlockMap" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Sherlock" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+
+
+        <div class="ui-content">
+
+            <h3>Sherlock Museum - Map</h3>
+            <div id="mapEvent2"></div>
+
+
+            <br>
+
+            <div class="ui-grid-c">
+                <div class="ui-block-a">
+                    <p>Address:</p>
+                    <hr> </div>
+
+                <div class="ui-block-b">
+                    <p>221b Baker Street, Marylebone, London</p>
+
+                </div>
+                <div class="ui-block-a">
+                    <p>Postcode:</p>
+                    <hr>
+                </div>
+                <div class="ui-block-b">
+                    <p>NW1 6XE</p>
+                </div>
+
+
+                <div class="ui-block-a">
+                    <p>Opening Hours:</p>
+                    <hr>
+                </div>
+                <div class="ui-block-b">
+                    <p>9:30am-6pm</p>
+                </div>
+
+                <div class="ui-block-a">
+                    <p>Transport:</p>
+                </div>
+                <div class="ui-block-b">
+                    <p>Tube: Baker Street Station</p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Store</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-icon-calendar ui-alt-icon ui-btn-icon-top ui-btn-active ui-state-persist">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top ">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class=" ui-btn ui-icon-grid ui-btn-icon-top ">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+    </section>
+    <!--Start of Payment Page-->
+    <!-- Purchase ticket page -->
+    <section id="Tickets" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Events" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <script>
+
+            function Total() {
+                var total = 0;
+                var totalTickets = 0;
+                var childTickets = 0;
+                var adultTickets = 0;
+                var concessionTickets = 0;
+                childTickets = Number(document.getElementById("childtickets").value);
+
+                adultTickets = Number(document.getElementById("adulttickets").value);
+                concessionTickets = Number(document.getElementById("Concessiontickets").value);
+
+                totalTickets = childTickets + adultTickets + concessionTickets;
+
+                try {
+                    for (var i = 0; i < childTickets; i++) {
+                        total = total + 5;
+
+
+                    }
+                    for (var i = 0; i < adultTickets; i++) {
+                        total = total + 10;
+                    }
+                    for (var i = 0; i < concessionTickets; i++) {
+                        total = total + 7;
+                    }
+
+
+
+                    document.getElementById("price").value = "£" + total + ".00";
+                    document.getElementById("total").value = totalTickets;
+
+                } catch (err) {
+
+                }
+            }
+
+        </script>
+
+
+        <div class="ui-content">
+
+            <h1>Tickets</h1>
+
+            <form id="frmBooking" name="bookingForm" action="post" action="_self">
+                <div class="ui-field-contain">
+
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" value="" placeholder="Name" />
+
+                    <label for="address">Address:</label>
+                    <input type="text" name="address" id="address" value="" placeholder="Address" />
+
+
+
+                    <label for="childtickets">Child Tickets: £5</label>
+                    <select onclick="Total()" name="childtickets" id="childtickets">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="4">5</option>
+                        <option value="4">6</option>
+                        <option value="4">7</option>
+
+                    </select>
+                    <label for="adulttickets">Adult Tickets: £10</label>
+                    <select onclick="Total()" name="adulttickets" id="adulttickets">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="4">5</option>
+                        <option value="4">6</option>
+                        <option value="4">7</option>
+                    </select>
+
+                    <label for="Concessiontickets">Concession Tickets: £7</label>
+                    <select onclick="Total()" name="Concessiontickets" id="Concessiontickets">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="4">5</option>
+                        <option value="4">6</option>
+                        <option value="4">7</option>
+                    </select>
+
+
+
+                    <div class="ui-field-contain" id="formBoxes">
+
+                        <label for="total">Tickets</label>
+                        <input type="text" name="total" id="total" value="0" placeholder="" readonly/>
+                        <label for="price">Price</label>
+                        <input type="text" name="price" id="price" value="£0.00" placeholder="" readonly/>
+                    </div>
+
+
+
+
+
+                </div>
+            </form>
+
+
+
+
+
+
+            <a id="lnkDialog" href="#dialog2" data-position-to="window" style="display:none"></a>
+            <button id="customButton" class="ui-shadow ui-btn ui-corner-all" type="submit" id="submit">Go to Payment</button>
+            <div id="thankyouPayment">
+
+
+
+                <script>
+                    jQuery(function ($) {
+                        var $form = $('#frmBooking');
+                        var handler = StripeCheckout.configure({
+                            key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                            token: function (token) {
+                                // Use the token to create the charge with a server-side script.
+                                // You can access the token ID with `token.id`
+                                $("#lnkDialog").click();
+                                //This will be printed when the transaction is successful. To charge, server side scripting is required.
+                                if (token.id) {
+
+                                 
+                                    $("#lnkDialog").click();
+
+
+
+
+
+
+                                    //You can also use the following code to re-submit the form content to another file for further processing.
+                                    //Don't forget to add action to your form
+                                    //$form.get(0).submit();
+
+                                    //Or save form data locally, using local storage.
+                                }
+                            }
+                        });
+
+                        $('#customButton').on('click', function (e) {
+
+                            var amountTotal;
+
+
+                            amountTotal = document.getElementById("price").value;
+                            amountTotal = amountTotal.replace("£", "");
+                            amountTotal = Number(amountTotal) * 100;
+
+
+                            // Open Checkout with further options
+                            handler.open({
+                                name: 'Book Tickets',
+                                currency: 'gbp',
+                                description: $('#total').val() + " Tickets",
+                                amount: amountTotal
+                            });
+                            e.preventDefault();
+                        });
+
+                        // Close Checkout on page navigation
+                        $(window).on('popstate', function () {
+                      
+                            handler.close();
+                          
+                        });
+
+                    });
+
+
+
+                </script>
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Store</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-icon-calendar ui-btn-icon-top">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class=" ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class=" ui-btn ui-icon-grid ui-btn-icon-top ">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </footer>
+
+    </section>
+    <!-- This is the dialog page -->
+    <section id="dialog" data-role="page" data-dialog="true">
+
+
+        <header data-role="header">
+            <h1 class=dialog-title>Email Confirmation</h1>
+        </header>
+        <div class="ui-content">
+            <h4 class="ui-title">Send favourites to email?</h4>
+            <p id="dialogP">Please enter Email</p>
+            <label for="email"></label>
+            <input type="email" name="email" id="email" value="" placeholder="Johsmith@email.com" />
+
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b dialogButtonNo" data-rel="back">Cancel</a>
+            <a href="#" onclick="ShowDiv()" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b dialogButton" data-rel="back"
+                data-transition="flow">Send
+
+            </a>
+        </div>
+
+
+
+        <script>
+            function ShowDiv() {
+
+
+                document.getElementById("favouriteConfirmation").textContent = 'Favourites list has been sent to your email.';
+            }
+        </script>
+    </section>
+
+    <!-- This is the dialog2 page -->
+    <section id="dialog2" data-role="page" data-dialog="true">
+
+
+        <header data-role="header">
+            <h1 class=dialog-title>Ticket Confirmation</h1>
+        </header>
+        <div class="ui-content">
+            <p id="dialogP2">Your tickets have been sent to your email, Thank you for your purchase.</p>
+            <a href="#Homepage" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b dialogButtonOkay" data-rel="back">Okay</a>
+
+        </div>
+
+
+
+    </section>
+    <!-- Start of Favourites Page -->
+    <section id="Favourites" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content">
+            <h2>Favourites List</h2>
+            <div id="favourite-content">
+                <p>My favourites: </p>
+            </div>
+            <div data-role="collapsible-set" class="favourites-list ui-alt-icon ui-nodisc-icon" data-iconpos="right">
+                <div data-role="collapsible" id="fav-stores">
+                    <h1>Stores</h1>
+                    <ul id="storelist" data-role="listview" data-inset="true" class="ui-ul-favouritelist ui-alt-icon ui-nodisc-icon">
+                        <!--<li><a href="#whsmith" class="ui-li-link"><img src="images/aickman_thumb.jpg" class="ui-li-thumb"><h4>WHSmith</h4><p class="ui-li-desc">Discover the eerie stories of Robert Aickman, one of our most accomplished yet overlooked writersof strange fiction.</p><p class="ui-li-aside">18:30</p></a></li>-->
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="fav-events">
+                    <h1>Events</h1>
+                    <ul id="eventslist" data-role="listview" data-inset="true" class="ui-ul-Eventfavouritelist ui-alt-icon ui-nodisc-icon ">
+                        <!--<li><a href="#NewsArticle3" class="ui-li-link"><img src="images/aickman_thumb.jpg" class="ui-li-thumb"><h4>Fictions best kept secret shown at British Library</h4><p class="ui-li-desc">Discover the eerie stories of Robert Aickman, one of our most accomplished yet overlooked writersof strange fiction.</p><p class="ui-li-aside">18:30</p></a></li>-->
+                    </ul>
+                </div>
+                <div data-role="collapsible" id="fav-news">
+                    <h1>News</h1>
+                    <ul id="newslist1" data-role="listview" data-inset="true" class="ui-ul-favouritelist ui-alt-icon ui-nodisc-icon">
+                        <!--<li><a href="#NewsArticle3" class="ui-li-link"><img src="images/aickman_thumb.jpg" class="ui-li-thumb"><h4>Fictions best kept secret shown at British Library</h4><p class="ui-li-desc">Discover the eerie stories of Robert Aickman, one of our most accomplished yet overlooked writersof strange fiction.</p><p class="ui-li-aside">18:30</p></a></li>-->
+                    </ul>
+                </div>
+
+                <div data-role="collapsible" id="fav-staff">
+                    <h1>Staff</h1>
+                    <ul id="stafflist" data-role="listview" data-inset="true" class="ui-ul-favouritelist ui-alt-icon ui-nodisc-icon">
+                        <!--<li><a href="#student1" class="ui-li-link"><img src="images/aickman_thumb.jpg" class="ui-li-thumb"><h4>Fictions best kept secret shown at British Library</h4><p class="ui-li-desc">Discover the eerie stories of Robert Aickman, one of our most accomplished yet overlooked writersof strange fiction.</p><p class="ui-li-aside">18:30</p></a></li>-->
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <a href="#dialog" data-transition="pop"  data-position-to="window" class="ui-alt-icon ui-nodisc-icon ui-btn ui-icon-mail ui-btn-icon-right emailButton">Send favourites to Email</a>
+        </div>
+            <!--/content-->
+            <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+                <div data-role="navbar">
+                    <ul class="ui-li-footer">
+                        <li>
+                            <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                        </li>
+                        <li>
+                            <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                        </li>
+                        <li>
+                            <a href="#Favourites" class="ui-alt-icon ui-btn ui-icon-star ui-btn-icon-top ui-btn-active ui-state-persist">Favourites</a>
+                        </li>
+                        <li>
+                            <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                        </li>
+                        <li>
+                            <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </footer>
+            <script>
+                $(document).on('pagecontainerbeforehide', 'body', function (event, ui) {
+                    //do something
+                    if (ui.nextPage.attr('id') == "Favourites") {
+                        $(".ui-ul-favouritelist.ui-listview").html("");
+                        $(".ui-ul-Eventfavouritelist.ui-listview").html("");
+                        if ($("#favourite-news1").is(":checked")) {
+                            $("#news1").clone().appendTo("#newslist1");
+                        }
+                        if ($("#favourite-store").is(":checked")) {
+                            $("#store").clone().appendTo("#storelist");
+                        }
+                        if ($("#favourite-event1").is(":checked")) {
+                            $("#shakespeareEvent").clone().appendTo("#eventslist");
+                        }
+                        if ($("#favourite-event2").is(":checked")) {
+                            $("#sherlockEvent").clone().appendTo("#eventslist");
+                        }
+                        if ($("#favourite-aboutus").is(":checked")) {
+                            $("#student").clone().appendTo("#stafflist");
+                        }
+                    }
+
+                });
+
+            </script>
+        </div>
+    </section>
+    <!-- Start of News Page -->
+    <section id="Newsfeed" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content">
+            <h2>Newsfeed</h2>
+            <ul data-role="listview" data-inset="true" data-filter="true" id="newslist" class="ui-ul-list ui-alt-icon ui-nodisc-icon">
+                <li data-role="list-divider">Today</li>
+                <li id="news1">
+                    <a href="#NewsArticle3" class="ui-li-link">
+                        <img src="img/aickman_thumb.jpg">
+                        <h4>Fictions best kept secret shown at British Library</h4>
+                        <p class="ui-li-desc">Discover the eerie stories of Robert Aickman, one of our most accomplished yet overlooked writers
+                            of strange fiction.</p>
+                        <p class="ui-li-aside">18:30</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="ui-li-link">
+                        <img src="img/729x424_NewReleases1.jpg" class="ui-li-pic">
+                        <h4>This weeks new releases!</h4>
+                        <p class="ui-li-desc">A bunch of new books have been released this week, and we've got all you need to know from what the
+                            critics think, to availability. Click here to find out more..</p>
+                        <p class="ui-li-aside">12:00</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Yesterday</li>
+                <li>
+                    <a href="#" class="ui-li-link">
+                        <img src="img/MurderMystery.png" class="ui-li-pic">
+                        <h4>Clapton's Murder Mystery</h4>
+                        <p class="ui-li-desc">As halloween approaches, the it sparks the return of the famous Clapton Murder Mystery. Find out
+                            how you can get involved, what prizes you can win and even what happened last year. Click here
+                            for more info..</p>
+                        <p class="ui-li-aside">21:00</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="ui-li-link">
+                        <img src="img/george-saunders.gif">
+                        <h4>Man Booker prize winner: George Saunders</h4>
+                        <p class="ui-li-desc">George Saunders has won the prestigous award </p>
+                        <p class="ui-li-aside">11:00</p>
+                    </a>
+                </li>
+                <li data-role="list-divider">Rest of the week</li>
+                <li>
+                    <a href="#" class="ui-li-link">
+                        <img src="img/WatershipDownAuthor.jpg">
+                        <h4>Watership Down author's personal library reveals precious treasures </h4>
+                        <p class="ui-li-desc">Richard Adams’s books, going to auction in December, include a first edition of Jane Austen’s Emma,
+                            Shakespeare’s Second Folio and Boswell’s Life of Johnson</p>
+                        <p class="ui-li-aside">Tuesday</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="ui-li-link">
+                        <img src="img/darwin.jpg">
+                        <h4>Darwin's annotated copy of On the Origin of Species goes to auction </h4>
+                        <p class="ui-li-desc">Christie’s expects volume, which shows the author refining his theory in light of new research, to
+                            fetch between £300,000 and £500,000</p>
+                        <p class="ui-li-aside">Monday</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-alt-icon ui-btn ui-icon-grid ui-btn-icon-top ui-btn-active ui-state-persist">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+    <!-- Start of News Articles Page -->
+    <section id="NewsArticle3" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Newsfeed" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content theme-a">
+            <h2>Supernatural fiction's 'best kept secret' Robert Aickman will be celebrated at the British Library</h2>
+            <div class="ui-grid-a ui-newsarticle-grid1 ui-responsive">
+                <div class="ui-block-a">
+                    <img src="img/aickman_thumb.jpg">
+                </div>
+                <div class="ui-block-b">
+                    <p class="ui-newsarticle-briefdesc">There's no better time of year than Halloween to discover the eerie stories of Robert Aickman, one of
+                        our most accomplished yet overlooked writers of strange fiction, says David Barnett.</p>
+                    <p class="ui-newsarticle-briefdesc">"His reputation does seem to grow year upon year, but he is terribly underrated by the literary establishment".</p>
+                </div>
+            </div>
+            <div class="ui-grid-a ui-newsarticle-grid2 ui-nodisc-icon ui-alt-icon">
+
+                <div class="ui-block-a">
+                    <p>In the spring of 2016, I was interviewing the writer Neil Gaiman in London – just ahead of the Sky Arts
+                        broadcast of an anthology series of films based on his short fiction.</p>
+                    <p>Discussing the stories chosen for adaptation, Gaiman expressed some pleasant surprise that the producers
+                        had not gone for what he thought were the more obvious ones, with neat endings, but had instead gone,
+                        in Gaiman’s words, for stories that were more “ambiguous; that don’t all come with closure”.</p>
+                    <p>He said the stories in question were “Robert Aickman-esque”: the sort of tales that “leave you feeling
+                        faintly disturbed or feeling you may have been lied to, that don’t necessarily providing you with
+                        full explanations”.</p>
+                    <p>Between reading that and interviewing Gaiman, I’d ripped through the first two Aickman collections I’d
+                        got my hand on, Dark Entries and Cold Hand In Mine. And I’d discovered – as I exhort you to do now
+                        – a new favourite author.</p>
+                    <p>“Isn’t he wonderful?” Gaiman had enthused when I informed him I’d just started reading Aickman. “It’s
+                        as if you watched a magic trick being done, and at the end of it you’re not even sure what the trick
+                        was.
+                    </p>
+                    <p>“All you know is that there are now four aces on the table that you don’t think were there at the beginning,
+                        and you can’t quite get it out of your head.”</p>
+                    <p>Which pretty much nails Aickman’s style. He didn’t really write ghost stories, though sometimes he did.
+                        What he did write was what he called “strange fiction”, reminiscent of the short stories of Shirley
+                        Jackson, American author of The Haunting of Hill House and The Lottery.</p>
+                    <p>Like the best Jackson stories, Aickman’s fiction is often ambiguous. There are unreliable narrators,
+                        a sense of creeping unease, a subtle increase in atmospheric pressure around you as you read, like
+                        a storm approaching. You finish a story and sometimes you’re not quite sure how it ended – like you’ve
+                        just woken from a dream.</p>
+                </div>
+                <div class="ui-block-b">
+                    <img src="img/robert-aikman.jpg">
+                    <a href="#Mapspage" class="ui-btn ui-btn-icon-right ui-icon-location ui-shadow">View in Maps</a>
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <input type="checkbox" name="favourite-news1" id="favourite-news1" class="custom">
+                        <label for="favourite-news1">
+                            <span class="ui-icon-star ui-btn-icon-right ui-alt-icon">Add to favourites</span>
+                        </label>
+                    </fieldset>
+
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-alt-icon ui-btn ui-icon-grid ui-btn-icon-top ui-btn-active ui-state-persist">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+
+    <section id="QRpage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Account" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Account" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content ">
+    
+            <div id="mainbody">
+                <table class="tsel" border="0" width="100%">
+                <tr>
+                <td valign="top" align="center" width="50%">
+                <table class="tsel" border="0">
+                <tr>
+                
+                <td><img class="selector" id="webcamimg" src="vid.png" onclick="setwebcam()" align="left" /></td>
+                <td><img class="selector" id="qrimg" src="cam.png" onclick="setimg()" align="right"/></td></tr>
+                <tr><td colspan="2" align="center">
+                <div id="outdiv">
+                </div></td></tr>
+                </table>
+                </td>
+                </tr>
+                <tr><td colspan="3" align="center">
+                <img src="down.png"/>
+                </td></tr>
+                <tr><td colspan="3" align="center">
+                <div id="result"></div>
+                </td></tr>
+                </table>
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- webqr_2016 -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8418802408648518"
+                     data-ad-slot="2527990541"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                </div>
+            
+            </div> 
+                <canvas id="qr-canvas" width="800" height="600"></canvas>
+                <script type="text/javascript">load();</script>
+    
+    
+
+               
+                </div>
+        
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#Aboutus" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+
+    <!--- News maps page -->
+    <section id="Mapspage" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#NewsArticle3" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content">
+            <h3>Maps</h3>
+            <div class="ui-grid-a ui-maps-grid1">
+                <div class="ui-block-a">
+                    <div id="map"></div>
+                </div>
+                <div class="ui-block-b">
+                    <h5>Address</h5>
+                    <p class="MarkerTitle">The British Library</p>
+                    <div id="address"></div>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Places" class="ui-btn ui-icon-location ui-btn-icon-top">Places</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-alt-icon ui-btn ui-icon-grid ui-btn-icon-top ui-btn-active ui-state-persist">News</a>
+                    </li>
+                    <li>
+                        <a href="#About" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+    <!--- login page  -->
+
+    <section id="Login" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Login" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content">
+            <h2>Login</h2>
+            <div id="LoginFormArea">
+                <div id="LoginForm">
+                    <p>Sign in with:
+                        <a href="https://www.facebook.com">
+                            <img src="img/facebook.png" class="SocialMediaIcon">
+                        </a>
+                        <a href="www.google.co.uk">
+                            <img src="img/google.png" class="SocialMediaIcon">
+                        </a>
+                    </p>
+                    <p class="p2">OR</p>
+                    <div class="ui-field-contain ui-LoginForm">
+                        <label for="username">Username/Email:</label>
+                        <input type="text" name="username" id="username" value="" placeholder="Username" />
+
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" value="" placeholder="*********" />
+                    </div>
+                  
+                    <div class="ui-LoginForm-btn">
+                        <a href="#" class="ui-nodisc-icon ui-alt-icon ui-btn ui-btn-inline ui-btn-icon-right ui-icon-plus ui-shadow">Register</a>
+                        <a href="#Account" class="ui-nodisc-icon ui-alt-icon ui-btn ui-btn-inline ui-btn-icon-right ui-icon-check ui-shadow">Login</a>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Places" class="ui-btn ui-icon-location ui-btn-icon-top">Places</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#About" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+
+
+    <section id="Account" data-role="page">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-home">Home</a>
+            <a href="#Account" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div class="ui-content">
+            <h2>My Account</h2>
+            <div class="ui-account-top">
+                <div class="ui-block-a">
+                    <img class="img-circle" src="img/avatar-circle.png">
+                </div>
+                <div class="ui-block-b">
+                    <h3>Username: John Smith</h3>
+                    <h3>Score: 100000</h3>
+                    <p>Number of events checked in:
+                        <b>62</b>
+                    </p>
+                    <p>Number of stores checked in:
+                        <b>193</b>
+                    </p>
+                    <a href="#QRpage" class="ui-btn ui-alt-icon ui-nodisc-icon ui-btn-icon-right ui-AR-button ui-icon-camera">Check in</a>
+                    <a href="#" class="ui-btn ui-alt-icon ui-nodisc-icon ui-btn-icon-right ui-Leaderboards-button ui-icon-bullets">View Leaderboards</a>
+                </div>
+                <div class="ui-block-c">
+                    <div class="ui-field-contain ui-account-bottom">
+                        <label for="firstname">First Name</label>
+                        <input type="text" name="firstname" id="firstname" value="" placeholder="John" />
+
+                        <label for="lastname">Last Name</label>
+                        <input type="text" name="lastname" id="lastname" value="" placeholder="Smith" />
+
+                        <label for="">Email:</label>
+                        <input type="email" name="email" id="email" value="" placeholder="johnsmith@CavendishBooks.com" />
+
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" value="" placeholder="*********" />
+
+                        <label for="bio">Bio</label>
+                        <textarea id="bio">Enter a brief description here, favourite books, events etc.</textarea>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+            <div data-role="navbar">
+                <ul class="ui-li-footer">
+                    <li>
+                        <a href="#Places" class="ui-btn ui-icon-location ui-btn-icon-top">Places</a>
+                    </li>
+                    <li>
+                        <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top ">Events</a>
+                    </li>
+                    <li>
+                        <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favouries</a>
+                    </li>
+                    <li>
+                        <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                    </li>
+                    <li>
+                        <a href="#About" class="ui-btn ui-icon-info ui-btn-icon-top">About Us</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+    </section>
+
+ <!-- Start of About Us Page -->
+ <div data-role="page" id="Aboutus" class="ui-page" style="background-color:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Home" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <h2>About Us</h2>
+        <ul data-role="listview" data-inset="true" data-filter="true" id="newslist" class="ui-ul-list ui-alt-icon ui-nodisc-icon">
+            <li data-role="list-divider" style="text-shadow:none">Our Team Members</li>
+            <li id="student">
+                <a href="#student1" class="ui-li-link">
+                    <img src="img/shyamphoto.jpg">
+                    <h4>Shyam Sthankiya</h4>
+                    <p class="ui-li-desc">One of the members that implemented the majestic web app you see now. Responsible for the stunning
+                        introduction to the web app, along with the designs to the iPhone portrait including the home
+                        page, and booking forms and many more.</p>
+                </a>
+            </li>
+            <li id="">
+                <a href="#student2" class="ui-li-link">
+                    <img src="img/jackphoto.jpg">
+                    <h4>Jack Kerr</h4>
+                    <p class="ui-li-desc" align="justify">From flowmaps and prototypes for the events, to the implementation of the favourites lists of the
+                        web app and various sections. Provided information on each events, also the member that brought
+                        to you the designs for the iPhone landscape.</p>
+                </a>
+            </li>
+            <li id="">
+                <a href="#student3" class="ui-li-link">
+                    <img src="img/tomphoto.jpg">
+                    <h4>Thomas Frostick</h4>
+                    <p class="ui-li-desc" align="justify">Bringer of news and Augmented reality to our web app, our very own Tom, brought to you, the designs
+                        and implementented the iPad portrait.</p>
+                </a>
+            </li>
+            <li id="">
+                <a href="#student4" class="ui-li-link">
+                    <img src="img/edphoto.jpg">
+                    <h4>Edselson Hinang</h4>
+                    <p class="ui-li-desc" align="justify">Yours trully made the About us section in regards to the iPad landscape orientation. Choosing a minimalist
+                        disgn with which incorporates a 4 grid style showcasing all the team members that had a hand
+                        in implemention of the web app as you see now.</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Start of About Us: Student 1 Page -->
+<div data-role="page" id="student1" class="ui-page" style="background:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <img class="img-circle" src="img/shyamphoto.jpg" width="200" height="200" style="display:block; margin:0 auto">
+        <h2 style="text-align:center">Shyam Sthankiya - Student 1 iPhone Portrait</h2>
+        <a href="https://www.facebook.com/Shyam.Sthankiya1995" target="_blank">
+            <img src="img/facebook.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="https://www.instagram.com/shyamsthankiya7/?hl=en" target="_blank">
+            <img src="img/instagram.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="https://twitter.com/KaiSkyusGaming" target="_blank">
+            <img src="img/twitter.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Design</h4>
+
+            <p align="justify">Illustrated the flow map which indicates the flow of action the user goes through in the Point of interests
+                section. Also designed the ui elements in order to add a POI to a favourites list as well as to locate
+                it on google maps and to email the favourites list to a valid email. The design will also be able to
+                sort and filter through the points of interests section. Designed the booking forms for the online payment
+                as well as an eye catching intro to the mobile app.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Implementation</h4>
+
+            <p align="justify">Implemented an eye catching intro to the mobile web app. Implemented the proposed design for creating a list
+                of POI as well as the user feedback system.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Challenging Tasks</h4>
+
+            <p align="justify">Implemented the proposed sequence of pages containing suitable forms to complete a booking or a purchase.
+                Clearly display the booking process and progress. Ensured the consistency of implementation of the proposed
+                mobile web app create a template to be used for all the iPhone pages, consider best utilization of the
+                display.
+            </p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Contact Details</h4>
+            <p>Office Address:</p>
+            <ul class="list">
+                <li>115 New Cavendish Street</li>
+                <li>London</li>
+                <li>W1W 6UW</li>
+            </ul>
+            <p>Email Address:</p>
+            <ul class="list">
+                <li>w1480952@my.westminster.ac.uk</li>
+            </ul>
+        </div>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <input type="checkbox" name="favourite-aboutus" id="favourite-aboutus" class="custom">
+            <label for="favourite-aboutus">
+                <span class="ui-icon-star ui-btn-icon-right ui-alt-icon">Add to favourites</span>
+            </label>
+        </fieldset>
+        <a href="#mapsAboutUs" class="button_right ui-btn ui-shadow ui-alt-icon ui-corner-all ui-btn-icon-left ui-icon-navigation ui-nodisc-icon">Map</a>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Start of About Us: Student 2 Page -->
+<div data-role="page" id="student2" class="ui-page" style="background:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <img class="img-circle" src="img/jackphoto.jpg" width="200" height="200" style="display:block; margin:0 auto">
+        <h2 style="text-align:center">Jack Kerr - Student 2 iPhone Landscape</h2>
+        <a href="">
+            <img src="img/facebook.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/instagram.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/twitter.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Design</h4>
+
+            <p align="justify">Designed a flowmap to indicate the flow of actions for a user to identify a list of events. Designed the
+                ui elements for the events section with a way to add POI, events, news and members to the favourites
+                list as well as a way for the user to give feedback . Designed the forms needed for booking an event
+                and going through the process of payment.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Implementation</h4>
+
+            <p align="justify">Implemented the proposed design for creating a list of Events. Implemented the proposed design for showing
+                detailed information about each Event as well as a way for the users to add an event to the favourites
+                lists as well as a way for a user to give feedback.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Challenging Tasks</h4>
+
+            <p align="justify">Implemented how the content of a favourites list of POI, events, news or team members could be emailed to
+                a valid email address.</p>
+        </div>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <input type="checkbox" name="favourite-student2" id="favourite-student2" class="custom">
+            <label for="favourite-student2">
+                <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+            </label>
+        </fieldset>
+        <a href="#mapsAboutUs" class="button_right ui-btn ui-shadow ui-alt-icon ui-corner-all ui-btn-icon-left ui-icon-navigation ui-nodisc-icon">Map</a>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Start of About Us: Student 3 Page -->
+<div data-role="page" id="student3" class="ui-page" style="background:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <img class="img-circle" src="img/tomphoto.jpg" width="200" height="200" style="display:block; margin:0 auto">
+        <h2 style="text-align:center">Thomas Frostick - Student 3 iPad Portrait</h2>
+        <a href="">
+            <img src="img/facebook.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/instagram.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/twitter.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Design</h4>
+
+            <p align="justify">Illustrated a flowmap about the news letters which demonstrates how a user finds information about news and
+                how to add it to the favourites page. As well as designed a way for the user to sort and filter through
+                the list of items and to show where it is refered to in the map. Considered a way to use a QR reader
+                for gamification.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Implementation</h4>
+
+            <p align="justify">Had a hand on implementing an eye catching intro to the mobile web app. Implemented the proposed design for
+                creating a list of News items. Implemented the proposed design for showing detailed information about
+                News items, as well as feedback system for the users.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Challenging Tasks</h4>
+
+            <p align="justify">Implement sorting & filtering of a list that has been created. Implement the use of AR as this has been proposed
+                in the design of the application.</p>
+        </div>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <input type="checkbox" name="favourite-student3" id="favourite-student3" class="custom">
+            <label for="favourite-student3">
+                <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+            </label>
+        </fieldset>
+        <a href="#mapsAboutUs" class="button_right ui-btn ui-shadow ui-alt-icon ui-corner-all ui-btn-icon-left ui-icon-navigation ui-nodisc-icon">Map</a>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Start of About Us: Student 4 Page -->
+<div data-role="page" id="student4" class="ui-page" style="background:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <img class="img-circle" src="img/edphoto.jpg" width="200" height="200" style="display:block; margin:0 auto">
+        <h2 style="text-align:center">Edselson Hinang - Student 4 iPad Landscape</h2>
+        <a href="">
+            <img src="img/facebook.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/instagram.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+        <a href="">
+            <img src="img/twitter.png" width="64" height="64" style="display:inline-block; margin:0 auto">
+        </a>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Design</h4>
+
+            <p align="justify">Illustrated the flow maps for the team members in order view the members that had a hand in designing and
+                implementing the web application, to create a list of favourite team members in the process. Created
+                two separate nodes that provided information about the web app and contact details. Along with a system
+                response for the users.</p>
+
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Implementation</h4>
+
+            <p align="justify">Implemented the proposed design for the About us section where 4 grids are used in order to display each
+                team member. Implemented the proposed design for further information regarding individual member. Each
+                member page contained further information, contact details, as well as office location on google maps.
+                As well as the option of adding a selected team member to the favourites list.</p>
+        </div>
+
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Challenging Tasks</h4>
+
+            <p align="justify">Identify a part of the application where the use of gamification has been proposed and implement point or
+                score recording.</p>
+        </div>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+            <input type="checkbox" name="favourite-student4" id="favourite-student4" class="custom">
+            <label for="favourite-student4">
+                <span class="ui-icon-star ui-btn-icon-left">Favourites</span>
+            </label>
+        </fieldset>
+        <a href="#mapsAboutUs" class="button_right ui-btn ui-shadow ui-alt-icon ui-corner-all ui-btn-icon-left ui-icon-navigation ui-nodisc-icon">Map</a>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Start of About Us: Maps Page -->
+<div data-role="page" id="mapsAboutUs" class="ui-page" style="background:#E0E0D2">
+    <header data-role="header" data-position="fixed">
+        <h1>
+            <img src="img/CB_Logo.png" class="ui-header-img">
+        </h1>
+        <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+        <a href="#" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+    </header>
+    <div data-role="content" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Our Office</h4>
+            <div id="mapOffice"></div>
+<br>
+<br>
+<hr>
+<p>
+<br><b>Office Hours:</b><br>
+<br>Monday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 17:00
+<br>Tuesday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 17:00
+<br>Wednesday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 17:00
+<br>Thursday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 17:00
+<br>Friday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 17:00
+<br>Saturday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closed
+<br>Sunday&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Closed
+</p>
+        </div>
+    </div>
+    <!--/content-->
+    <footer data-role="footer" class="ui-bar ui-nodisc-icon" data-position="fixed">
+        <div data-role="navbar">
+            <ul class="ui-li-footer">
+                <li>
+                    <a href="#Store" class="ui-btn ui-icon-location ui-btn-icon-top">Stores</a>
+                </li>
+                <li>
+                    <a href="#Events" class="ui-btn ui-icon-calendar ui-btn-icon-top">Events</a>
+                </li>
+                <li>
+                    <a href="#Favourites" class="ui-btn ui-icon-star ui-btn-icon-top">Favourites</a>
+                </li>
+                <li>
+                    <a href="#Newsfeed" class="ui-btn ui-icon-grid ui-btn-icon-top">News</a>
+                </li>
+                <li>
+                    <a href="#Aboutus" class="ui-alt-icon ui-btn ui-icon-info ui-btn-icon-top ui-btn-active ui-state-persist">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+    <!-- Start of Account Pages -->
+    <div data-role="page" id="Accounts" class="ui-page" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Account" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content"></div>
+    </div>
+
+    <!-- Start of Users Pages -->
+    <div data-role="page" id="User" class="ui-page" style="background:#E0E0D2">
+        <header data-role="header" data-position="fixed">
+            <h1>
+                <img src="img/CB_Logo.png" class="ui-header-img">
+            </h1>
+            <a href="#Aboutus" class="ui-btn ui-nodisc-icon ui-btn-icon-left ui-btn-left ui-back-button ui-icon-carat-l">Back</a>
+            <a href="#Account" class="ui-btn ui-nodisc-icon ui-btn-icon-right ui-btn-right ui-account-button ui-icon-user">Account</a>
+        </header>
+        <div data-role="content" class="ui-content"></div>
+    </div>
+</body>
+
+</html>

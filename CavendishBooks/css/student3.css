@@ -1,0 +1,387 @@
+h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+#NewsArticle h2 {
+    font-size: 36px;
+    margin: 0;
+}
+
+.ui-listview > li h4 {
+    margin-left: 10px;
+    white-space: normal;
+}
+
+h5 {
+    margin: 5px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#address {
+    padding-left: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 450px;
+}
+
+.MarkerTitle{
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    padding-left:5px;
+}
+/*----------Login------------------*/
+
+.ui-content #LoginFormArea{
+    align-content: center;
+}
+
+#LoginFormArea{
+    background-color: #74B3D3;
+    height:460px;
+    margin:20px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#LoginForm{
+    background-color:white;
+    margin:20px;
+    height:420px;
+    vertical-align: center;
+}
+
+#LoginForm>p{
+    text-align: Center;
+    font-weight: bold;
+    padding-top: 20px;
+}
+#LoginForm>p.p2{
+    padding-top: 0;
+}
+
+.ui-field-contain.ui-LoginForm{
+    Padding-left: 20px;
+    Padding-right: 20px;
+    margin-bottom:0;
+    border:0;
+}
+.ui-field-contain.ui-LoginForm .ui-input-text{
+    margin-bottom: 10px;
+    width: 70%;
+    border-radius: 5px;
+}
+
+.ui-field-contain.ui-Remember{
+    padding-left:28%;
+    width:28%;
+    margin:0;
+    border:0;
+}
+
+.ui-field-contain.ui-Remember .ui-checkbox .ui-btn{
+    background-color:white;
+    font-size:12px;
+}
+
+.ui-field-contain.ui-LoginForm label{
+    font-weight: bold;
+    width:25%;
+    text-align: right;
+}
+
+#LoginForm > .ui-LoginForm-btn {
+    text-align: Center;
+    margin-top: 10px;
+}
+#LoginForm > .ui-LoginForm-btn > a.ui-btn{
+    width:30%;
+    font-size:14px;
+    box-shadow: 1px;
+    margin:15px;
+}
+
+#favourite-news1 {
+    background-color:greenyellow;
+}
+
+#favourite-news1 input:checked ~ .checkmark {
+    background-color: greenyellow;
+  }
+
+.SocialMediaIcon{
+    height:30px;
+    width:30px;
+}
+
+/* 1x2 grid 1:2*/
+
+.ui-grid-a.ui-newsarticle-grid1 {
+    height: 20%;
+    background-color: white;
+    font-size: 14px;
+}
+
+.ui-grid-a.ui-maps-grid1 .ui-block-b,
+.ui-grid-a.ui-newsarticle-grid1 .ui-block-a {
+    width: 35%;
+}
+
+.ui-grid-a.ui-maps-grid1 .ui-block-a,
+.ui-grid-a.ui-newsarticle-grid1 .ui-block-b {
+    width: 65%;
+}
+
+.ui-grid-a.ui-newsarticle-grid1 .ui-block-a>img {
+    width: 100%;
+    height: 100%;
+}
+
+.ui-newsarticle-briefdesc {
+    padding-left: 1em;
+}
+
+
+/*1x2 grid 2:1*/
+
+.ui-grid-a.ui-maps-grid1,
+.ui-grid-a.ui-newsarticle-grid2 {
+    background-color: white;
+    margin-top: 1em;
+}
+
+.ui-grid-a.ui-newsarticle-grid2 .ui-block-a {
+    width: 65%;
+    font-size: 12px;
+    padding-right: 1em;
+}
+
+.ui-grid-a.ui-newsarticle-grid2 .ui-block-b {
+    width: 35%;
+}
+
+.ui-grid-a.ui-newsarticle-grid2 .ui-block-b>img {
+    width: 100%;
+    height: 100%;
+}
+
+/*----------------------------------------------------*/
+
+.ui-ul-favouritelist.ui-listview .ui-li-has-thumb>img:first-child,
+.ui-ul-favouritelist.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child,
+.ui-ul-favouritelist.ui-listview .ui-li-has-thumb .ui-li-thumb,
+#newslist.ui-ul-list.ui-listview .ui-li-has-thumb>img:first-child,
+#newslist.ui-ul-list.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child,
+#newslist.ui-ul-list.ui-listview .ui-li-has-thumb .ui-li-thumb {
+    position: absolute;
+    left: 0;
+    background-color: white;
+	max-height: 100%;
+    height: 100%;
+    width: 25%;
+    max-width: 30%;
+}
+
+.ui-ul-list.ui-listview>.ui-li-divider {
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2)
+}
+
+.ui-ul-favouritelist.ui-listview>.ui-li-has-thumb>.ui-btn,
+.ui-ul-favouritelist.ui-listview>.ui-li-has-thumb.ui-last-child>.ui-btn,
+.ui-ul-favouritelist.ui-listview>.ui-li-static.ui-li-has-thumb,
+#newslist.ui-ul-list.ui-listview>.ui-li-has-thumb>.ui-btn,
+#newslist.ui-ul-list.ui-listview>.ui-li-has-thumb.ui-last-child>.ui-btn,
+#newslist.ui-ul-list.ui-listview>.ui-li-static.ui-li-has-thumb {
+    height: 10em;
+    background-color: white;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-color: #b9b9b9;
+}
+.ui-ul-favouritelist.ui-listview>.ui-li-has-thumb>.ui-li-link, 
+.ui-ul-list.ui-listview>.ui-li-has-thumb>.ui-li-link {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 30%;
+}
+
+.ui-ul-favouritelist.ui-listview .ui-li-desc, 
+.ui-ul-list.ui-listview .ui-li-desc,
+.ui-ul-storeslist.ui-listview .ui-li-desc, 
+.ui-ul-list.ui-listview .ui-li-desc {
+    font-size: .75em;
+    font-weight: normal;
+    display: block;
+    margin: .6em 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: normal;
+}
+
+.ui-account-top .ui-block-b,
+.ui-account-top .ui-block-a{
+
+    /*height:100%;*/
+    width:50%;
+    float:left;
+}
+.ui-account-top .ui-block-c{
+    width:100%;
+    float:none;
+}
+
+.ui-account-top .ui-block-b > p{
+    margin-top: 0; 
+}
+.ui-account-top .ui-block-b{
+    text-align: center;
+}
+
+.ui-account-top .ui-block-a > img{
+    height:100%;
+    width:100%;
+    border-radius:50%;
+    margin-bottom:2em;
+}
+
+.ui-account-top{
+    width:100%;
+    background-color: white;
+    padding-top: 1em;
+    /*height:19em;*/
+}
+/*#fav-news-list > li{
+    height:10%;
+}
+#fav-news-list >li>img{
+    height:100%;
+}*/
+ #NewsArticle3 .ui-collapsible-content{
+    padding: 1px;
+}
+
+#NewsArticle3 .ui-controlgroup-horizontal .ui-controlgroup-controls{
+    width:100%;
+}
+#NewsArticle3 .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-btn.ui-last-child {
+    margin: 0 0.3125em;
+    text-align: center;
+    box-shadow: 1em;
+}
+
+#NewsArticle3 .ui-controlgroup-horizontal .ui-controlgroup-controls .ui-checkbox{
+    width:100%;
+}
+
+#AccountBottom{
+    background-color: white;
+    width:100%;
+    height:60%;
+}
+.ui-field-contain.ui-account-bottom {
+    margin:1em;
+}
+.ui-field-contain.ui-account-bottom .ui-input-text{
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+/*First Breakpoint*/
+@media all and (max-width: 26em){
+
+    /*Newsfeed*/
+    #Favourites h4,
+    #Newsfeed h4{
+        font-size: 0.75em;
+        margin-right: 1em;
+        max-width: 13em;
+    }
+
+    .ui-ul-favouritelist.ui-listview>.ui-li-has-thumb>.ui-btn,
+    .ui-ul-favouritelist.ui-listview>.ui-li-has-thumb.ui-last-child>.ui-btn,
+    .ui-ul-favouritelist.ui-listview>.ui-li-static.ui-li-has-thumb,
+    #newslist.ui-ul-list.ui-listview>.ui-li-has-thumb>.ui-btn,
+    #newslist.ui-ul-list.ui-listview>.ui-li-has-thumb.ui-last-child>.ui-btn,
+    #newslist.ui-ul-list.ui-listview>.ui-li-static.ui-li-has-thumb {
+        height: 5em;
+        
+    }
+	.ui-ul-favouritelist.ui-listview .ui-li-desc,
+    #newslist.ui-ul-list.ui-listview .ui-li-desc{
+        font-size: 0em;
+    }
+    
+	
+    .ui-ul-favouritelist.ui-listview .ui-li-aside,
+    #newslist.ui-ul-list.ui-listview .ui-li-aside  {
+        font-size: .6em;
+    }
+    /*NewsArticle*/
+    .ui-grid-a.ui-newsarticle-grid1 .ui-block-b,
+    .ui-grid-a.ui-newsarticle-grid1 .ui-block-a{
+        width:100%;
+    }
+
+    .ui-grid-a.ui-newsarticle-grid2 .ui-block-a,
+    .ui-grid-a.ui-newsarticle-grid2 .ui-block-b {
+        width: 100%;
+    }
+
+    .ui-grid-a.ui-newsarticle-grid2 .ui-block-a{
+        padding-left: 1em;
+    }
+
+    #NewsArticle3 h2{
+        font-size: 1.2em;
+    }
+
+    /*NewsMaps*/
+    
+    .ui-grid-a.ui-maps-grid1 .ui-block-a,
+    .ui-grid-a.ui-maps-grid1 .ui-block-b{
+            width:100%;
+    }
+
+    .ui-account-top .ui-block-c,
+    .ui-account-top .ui-block-b,
+    .ui-account-top .ui-block-a{
+    
+        /*height:100%;*/
+        width:100%;
+        float:none;
+    }
+}
+
+@media all and (min-width: 60em){
+    .ui-account-top{
+        background-color: white;
+        width:100%;
+        float:left;
+        /*height:19em;*/
+    }
+    .ui-account-top .ui-block-b,
+    .ui-account-top .ui-block-a{
+    
+        /*height:100%;*/
+        padding-top: 1em;
+        vertical-align: middle;
+        width:24%;
+        float:left;
+    }
+    .ui-account-top .ui-block-c{
+        background-color: white;
+        float:left;
+        width:45%;
+        height: 100%;
+        margin-left: 2em;
+    }
+}
